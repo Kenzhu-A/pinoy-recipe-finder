@@ -1,8 +1,7 @@
-// src/pages/RecipeDetail.jsx
 import { useParams, useNavigate, Link } from "react-router-dom";
 import recipesData from "../data/recipes.json";
 import { useFavorites } from "../contexts/FavoritesContext";
-import "../style.css";
+import "../index.css";
 
 export default function RecipeDetail() {
   const { id } = useParams();
@@ -25,7 +24,6 @@ export default function RecipeDetail() {
 
   return (
     <div className="container py-4">
-      {/* Back link */}
       <button
         className="btn btn-link p-0 mb-3 recipe-back-btn"
         onClick={() => navigate(-1)}
@@ -34,7 +32,6 @@ export default function RecipeDetail() {
         ← Back to list
       </button>
 
-      {/* BIG hero image */}
       <div className="position-relative rounded-3 overflow-hidden shadow mb-4 recipe-hero">
         <img
           src={recipe.image}
@@ -48,10 +45,8 @@ export default function RecipeDetail() {
         </div>
       </div>
 
-      {/* Description */}
       <p className="lead mb-4">{recipe.description}</p>
 
-      {/* Actions */}
       <div className="d-flex flex-wrap gap-2 mb-4">
         {isFavorite ? (
           <button
@@ -75,7 +70,6 @@ export default function RecipeDetail() {
         </Link>
       </div>
 
-      {/* Details */}
       <div className="row g-4">
         <div className="col-md-6">
           <h4>Ingredients</h4>

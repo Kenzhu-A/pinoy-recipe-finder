@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext";
-import "../style.css";
+import "../index.css";
 
 export default function Header() {
   const { favorites } = useFavorites();
@@ -17,7 +17,6 @@ export default function Header() {
           <span className="brand-text">Pinoy Recipe Finder</span>
         </Link>
 
-        {/* Bootstrap toggler (requires Bootstrap JS to work) */}
         <button
           className="navbar-toggler"
           type="button"

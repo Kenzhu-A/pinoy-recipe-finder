@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../style.css"; // import custom styles
+import "../index.css"; 
 
 export default function RecipeCard({ recipe }) {
   return (
