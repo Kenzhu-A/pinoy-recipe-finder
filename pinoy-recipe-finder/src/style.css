@@ -1,0 +1,342 @@
+/* import font (tiny detail) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root{
+  --brown-1: #8B5E3C;
+  --brown-2: #A97142;
+  --brown-3: #C58940;
+  --brand-white: #FFFFFF;
+  --brand-accent: rgba(255,255,255,0.12);
+}
+
+/* ---------- Header / Navbar ---------- */
+.main-navbar {
+  background: linear-gradient(90deg, var(--brown-1) 0%, var(--brown-2) 50%, var(--brown-3) 100%);
+  position: sticky;      /* sticks to top while scrolling */
+  top: 0;
+  z-index: 1040;         /* sits above most content (Bootstrap uses 1030) */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: box-shadow 0.18s ease, background 0.18s ease;
+}
+
+/* make sure container items are vertically centered */
+.main-navbar .container {
+  display: flex;
+  align-items: center;
+}
+
+/* branding */
+.app-brand {
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--brand-white) !important;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+/* smaller brand on phones */
+@media (max-width: 576px) {
+  .app-brand { font-size: 1rem; }
+}
+
+/* nav links */
+.app-nav-link {
+  color: var(--brand-white) !important;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+}
+.app-nav-link:hover,
+.app-nav-link:focus {
+  color: var(--brand-white) !important;
+  text-decoration: none;
+  opacity: 0.95;
+}
+
+/* focus ring (accessibility) */
+.app-nav-link:focus {
+  outline: 3px solid rgba(197,137,64,0.18);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* favorites */
+.favorites-heart { margin-right: 0.4rem; }
+.favorites-badge {
+  background: var(--brand-accent);
+  color: var(--brand-white);
+  border-radius: 999px;
+  padding: 0.12rem 0.5rem;
+  font-size: 0.82rem;
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+/* toggler styling: ensure visible on brown background */
+.navbar-toggler {
+  border-color: rgba(255,255,255,0.18);
+}
+.navbar-toggler-icon {
+  /* custom white 3-line icon to guarantee visibility across Bootstrap versions */
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* subtle shadow (keeps "shadow-sm" effect consistent) */
+.main-navbar.shadow-sm {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* reduce navbar height slightly for a compact, professional look */
+.main-navbar .navbar-brand,
+.main-navbar .nav-link {
+  line-height: 1.2;
+}
+
+/* small-screen adjustments */
+@media (max-width: 420px) {
+  .favorites-badge { padding: 0.09rem 0.35rem; font-size: 0.75rem; }
+  .app-nav-link { padding: 0.45rem 0.5rem; }
+}
+
+/* Optional comments for switching to fixed:
+   If you want the navbar fixed (position: fixed) instead of sticky,
+   uncomment .main-navbar.fixed { ... } and add padding-top equal to navbar height
+   on your page wrapper (so content doesn't sit under the navbar).
+*/
+/*
+.main-navbar.fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+body { padding-top: 56px; } // example: only if you use fixed header
+*/
+
+/* --- Recipe Card Styles --- */
+.recipe-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Card image */
+.recipe-card-img {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Title */
+.recipe-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #5C4033; /* warm brown, appetizing */
+  margin-bottom: 0.5rem;
+}
+
+/* Description text */
+.recipe-card-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Button */
+.recipe-card-btn {
+  background-color: #C58940;   /* golden brown vibe */
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.recipe-card-btn:hover {
+  background-color: #A97142;   /* darker brown on hover */
+}
+
+.searchbar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.searchbar-input {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 50px;       
+  padding: 10px 20px;
+  border: 1px solid #C58940;  
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.searchbar-input:focus {
+  outline: none;
+  border-color: #A97142;     
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ===================== */
+/* FAVORITES PAGE STYLES */
+/* ===================== */
+
+.favorites-container {
+  padding: 40px 20px;
+  background-color: #faf3e0; /* light brown/cream for warmth */
+  min-height: 100vh;
+}
+
+.favorites-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5c3d2e; /* deep brown */
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #c58940;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.favorites-empty {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #6c757d;
+  background: #fff8f0;
+  border: 2px dashed #c58940;
+  border-radius: 12px;
+  padding: 30px 20px;
+  max-width: 500px;
+  margin: 60px auto;
+  font-style: italic;
+}
+
+/* ===================== */
+/* HOME PAGE STYLES      */
+/* ===================== */
+
+.home-container {
+  padding: 60px 20px;
+  background-color: #fdf6ec; /* subtle warm beige */
+  min-height: 100vh;
+}
+
+/* Title Section */
+.home-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #8b5e3c; /* warm brown */
+  margin-bottom: 10px;
+}
+
+.home-subtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+}
+
+/* Search bar wrapper */
+.home-search {
+  max-width: 500px;
+  margin: 0 auto 40px auto;
+}
+
+/* Recipes Grid */
+.home-recipes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Empty State */
+.home-empty {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #6c757d;
+  background: #fff8f0;
+  border: 2px dashed #c58940;
+  border-radius: 12px;
+  padding: 30px 20px;
+  max-width: 500px;
+  margin: 40px auto;
+  font-style: italic;
+}
+
+.recipe-hero-img {
+  height: min(60vh, 520px);
+  object-fit: cover;
+  display: block;
+  width: 100%;
+}
+
+/* Overlay: semi-opaque dark background + responsive padding
+   Matches p-3 (1rem) on small and p-md-4 (1.5rem) on md+ */
+.recipe-hero-overlay {
+  background: rgba(0, 0, 0, 0.45); /* consistent fallback to bg-dark bg-opacity-50 */
+  padding: 1rem; /* p-3 */
+}
+
+@media (min-width: 768px) {
+  .recipe-hero-overlay {
+    padding: 1.5rem; /* p-md-4 */
+  }
+}
+
+/* Title inside the overlay: readable, slightly bold, with subtle text-shadow */
+.recipe-hero-title {
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+  /* responsive sizing rather than heavy fixed font-size */
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  line-height: 1.05;
+  color: #ffffff; /* explicit for clarity */
+}
+
+/* Small back button styling to match app theme and remain accessible */
+.recipe-back-btn {
+  font-size: 0.95rem;
+  color: #5c4033;              /* warm brown accent */
+  text-decoration: none;
+  padding-left: 0;             /* keep p-0 behaviour */
+  padding-right: 0;
+}
+.recipe-back-btn:hover,
+.recipe-back-btn:focus {
+  text-decoration: underline;
+  color: #3e2b23;
+}
+
+/* Optional: keep consistent spacing for action buttons on small screens */
+@media (max-width: 420px) {
+  .d-flex.flex-wrap.gap-2.mb-4 > .btn {
+    flex: 1 1 100%;
+  }
+}
+
+/* Small accessibility & visual niceties for list items */
+.list-group-item {
+  /* keep Bootstrap defaults, but ensure decent line-height */
+  line-height: 1.4;
+  font-size: 0.98rem;
+}
+
+
